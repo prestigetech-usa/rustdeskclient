@@ -498,7 +498,8 @@ jobs:
           files: |
             rustdesk*-aarch64.dmg
 
-  build-rustdesk-ios:
+ # build-rustdesk-ios:
+    if: false
     if: ${{ inputs.upload-artifact }}
     name: build rustdesk ios ipa
     runs-on: ${{ matrix.job.os }}
@@ -617,7 +618,7 @@ jobs:
       #     files: |
       #       flutter/build/ios/ipa/*.ipa
 
-  build-rustdesk-ios-selfhost:
+ # build-rustdesk-ios-selfhost:
     #if: ${{ inputs.upload-artifact }}
     if: false
     runs-on: [self-hosted, macOS, ARM64]
@@ -918,7 +919,8 @@ jobs:
           tag_name: ${{ env.TAG_NAME }}
           files: rustdesk-${{ env.VERSION }}-unsigned.tar.gz
 
-  build-rustdesk-android:
+ # build-rustdesk-android:
+    if: false
     needs: [generate-bridge]
     name: build rustdesk android apk ${{ matrix.job.target }}
     runs-on: ${{ matrix.job.os }}
@@ -1208,10 +1210,11 @@ jobs:
           files: |
             signed-apk/rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.apk
 
-  build-rustdesk-android-universal:
+ # build-rustdesk-android-universal:
     needs: [build-rustdesk-android]
     name: build rustdesk android universal apk
     if: ${{ inputs.upload-artifact }}
+    if: false
     runs-on: ubuntu-22.04
     env:
       reltype: release
