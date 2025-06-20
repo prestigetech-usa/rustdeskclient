@@ -1,0 +1,11 @@
+name: Manual Windows Flutter Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: ./.github/workflows/flutter-build.yml
+    with:
+      upload-artifact: true
+      upload-tag: "manual-build"
